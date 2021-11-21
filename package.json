@@ -1,0 +1,28 @@
+{
+  "name": "lbs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "circular-json": "^0.5.9",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "ember-truth-helpers": "^3.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "handlebars-helper-equal": "^1.0.0",
+    "hbs": "^4.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
+}
