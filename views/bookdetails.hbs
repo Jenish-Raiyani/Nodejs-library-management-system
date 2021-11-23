@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
-  <title>Search Book</title>
+  <title>Book Details</title>
   <!-- Favicon -->
   <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
@@ -34,17 +34,92 @@
 <body class="bg-default">
 
   <div class="main-content">
-    <div class="header bg-gradient-primary py-7 py-lg-5 pt-lg-3 mt-10">
-      <div class="separator separator-bottom separator-skew zindex-100">
-      </div>
-    </div>
-    <div class="container mt--7 pb-5"  >
-      <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-7">
-          
+      <div class="container-fluid mt-6">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header border-0">
+              <h3 class="mb-0">Books Details</h3>
+            </div>
+            <!-- Light table -->
+            <div class="table-responsive">
+           
+             <div class="container">
+                {{#each Bookdata}}
+         
+                <b>Title : </b> {{this.Book_title}}
+                <br>
+                <b>Author : </b> {{this.Authors}}
+                <br>
+                <b> ISBN: </b> {{this.ISBN}}
+                <br>
+                <b> Publisher: </b> {{this.Publisher}}
+                <br>
+                <b> Edition: </b> {{this.Edition}}
+        
+              {{/each}}
+             </div>
+            </div>
+              <!-- Card footer -->
+              <div class="card-footer py-4">
+                 
+              </div>
+            </div>
+          </div>
         </div>
-      </div>      
-    </div>
+      </div>
+  </div>
+   
+     <div class="container-fluid mt-6">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <!-- Card header -->
+            <div class="card-header border-0">
+              <h3 class="mb-0">Books List</h3>
+            </div>
+            <!-- Light table -->
+            <div class="table-responsive">
+              <div>
+                <table class="table align-items-center">
+                  <thead class="thead-light">
+                    <tr>
+                      
+                      <th scope="col">Location</th>
+                      <th scope="col">ISBN</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Authors</th>                      
+                      <th scope="col">Status</th>
+                        
+                    </tr>
+                  </thead>
+                  <tbody class="list">
+                    {{#each location}}
+                     
+
+                      <tr>
+                          <td>{{this.location}}</td>
+                          <td>{{this.ISBN}}</td>
+                          <td>{{this.title}}</td>
+                          <td>{{this.authors}}</td>
+                          <td>{{this.status}}</td>
+
+                      </tr>
+
+                    {{/each}}
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- Card footer -->
+              <div class="card-footer py-4">
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 
 
