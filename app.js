@@ -64,6 +64,6 @@ app.get('/register', (req,res)=>{
     res.render('register')
 });
 */
-app.listen(3000,()=>{
+app.listen('https://lmsnodejs.herokuapp.com/',()=>{
     console.log("Server started")
 })
