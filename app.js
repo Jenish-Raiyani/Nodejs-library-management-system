@@ -64,6 +64,8 @@ app.get('/register', (req,res)=>{
     res.render('register')
 });
 */
-app.listen('https://lmsnodejs.herokuapp.com/',()=>{
+
+const port = process.env.PORT || 3000;
+app.listen(port,()=>{
     console.log("Server started")
 })
