@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- META SECTION -->
+  <title>Add Book </title>
+
+  
+
+
+  
+
+</head>
+
+<body>
+
+
+  <div class="home-content" style="background-color: rgb(255, 255, 255);">
+
+
+    <div class="container">
+     
+      <div class="container mt-4">
+         {{#if message}}
+          <div class="alert alert-success alert-dismissible fade show" id="alertdiv" role="alert">
+              <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+              <span class="alert-text">{{message}}</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+      {{/if}}
+        <div class="card">
+          <div class="card-header">
+            Add Member
+          </div>
+
+          <div class="card-body">
+            <form action="/addmember/" method="post" id="addbooks">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="John Show">
+
+              </div>
+              <div class="form-group">
+                <label for="title">Gender</label>
+                <br>
+                <input type="radio" name="gender" value="male"> Male<br>
+                <input type="radio" name="gender" value="female"> Female<br>
+        
+              </div>
+              <div class="form-group">
+                <label >Birthdate</label>
+                <input type="date" class="form-control" id="bdate" name="birthdate" placeholder="01/03/2000">
+
+              </div>
+              <div class="form-group">
+                <label>Mobile Number</label=>
+                <input type="text" class="form-control" id="mobile" name="mobile" placeholder="9190074733">
+
+              </div>
+
+               <div class="form-group">
+                <label>Aadhaar Number</label=>
+                <input type="text" class="form-control" id="aadhaar" name="aadhaar" placeholder="12457899543">
+
+              </div>
+              <div class="form-group">
+                <label for="publisher">Address</label>
+                <textarea type="text" class="form-control" id="address" name="address"></textarea>
+               
+              </div>
+              <div class="form-group">
+                <label >City</label>
+                <input type="text" class="form-control" id="city" name="city">
+              </div>
+              <div class="form-group">
+                <label >pincode</label>
+                <input type="text" class="form-control" id="pincode" name="pincode">
+              </div>
+              <div class="form-group">
+                <label >Email</label>
+                <input type="email" class="form-control" id="email" name="email">
+              </div>
+
+
+
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+ 
+
+
+
+
+
+
+<script>
+  setTimeout(function() {
+    $('#alertdiv').fadeOut('fast');
+}, 2000); // <-- time in milliseconds
+</script>
+</body>
+
+</html>

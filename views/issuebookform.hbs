@@ -1,0 +1,127 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- META SECTION -->
+  <title>Add Details </title>
+
+  
+
+
+  
+
+</head>
+
+<body>
+
+
+  <div class="home-content" style="background-color: rgb(255, 255, 255);">
+
+
+    <div class="container">
+     
+      <div class="container mt-4">
+         {{#if message}}
+          <div class="alert alert-success alert-dismissible fade show" id="alertdiv" role="alert">
+              <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+              <span class="alert-text">{{message}}</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+      {{/if}}
+        <div class="card">
+          <div class="card-header">
+            Add Books
+          </div>
+
+          <div class="card-body">
+            <form action="/issuebook/addDetails/{{bookdata.id}}" method="post" id="addbooks">
+              
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="title" class="form-control" id="title" name="title" value="{{ bookdata.Book_title}}" >
+     
+                    </div>
+                    <div class="form-group">
+                        <label for="isbn">Book ISBN</label>
+                        <input type="text" class="form-control" id="isbn" name="isbn" value="{{ bookdata.ISBN}}">
+     
+                    </div>  
+                     <div class="form-group">
+                        <label for="author">Authors</label>
+                        <input type="text" class="form-control" id="author" name="author" value="{{ bookdata.Authors}}">     
+                    </div>
+                     
+                    <div class="form-group">
+                        <label>Issue Date</label>
+                        <input type="datetime-local" class="form-control" id="idate" name="idate">
+     
+                    </div>
+                     <div class="form-group">
+                        <label>Book Due Date</label>
+                        <input type="datetime-local" class="form-control" id="duedate" name="duedate">
+                    </div>
+                     <div class="form-group">
+                        <label>UserName</label>
+                        {{!-- <input type="text" class="form-control" id="username" name="username">    --}}
+                         
+
+                          <select   name="username"  class="form-control">
+                            {{#each members}}
+       
+
+                            <option value="{{this.name}}">{{this.name}}</option>
+                            {{/each}}
+       
+                            
+                          </select>
+  
+                    </div>
+                     <div class="form-group">
+                        <label>Mobile Number</label>
+                        {{!-- <input type="text" class="form-control" id="mobile" name="mobile"> --}}
+                        <select   name="mobile"  class="form-control">
+                            {{#each members}}
+       
+
+                            <option value="{{this.mobileNo}}">{{this.mobileNo}}</option>
+                            {{/each}}
+       
+                            
+                          </select>
+     
+                    </div>
+                    
+                    
+                     
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </div>
+
+ 
+
+
+
+
+
+
+<script>
+  setTimeout(function() {
+    $('#alertdiv').fadeOut('fast');
+}, 2000); // <-- time in milliseconds
+</script>
+</body>
+
+</html>

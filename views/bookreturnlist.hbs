@@ -36,22 +36,7 @@
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
         <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Book Table</h6>
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-book"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Books</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Booklist</li>
-                </ol>
-              </nav>
-            </div>
-            <div class="col-lg-6 col-5 text-right">
-              <a href="/addbook" class="btn btn-sm btn-neutral" target="_blank">Add Book</a>
-              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-            </div>
-          </div>
+           
         </div>
       </div>
     </div>
@@ -74,19 +59,23 @@
                 <table class="table align-items-center table-bordered" id="employee_table">
                   <thead class="thead-light">
                     <tr>
-                      <th scope="col">No.</th>
+                        <th scope="col">No.</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Mobile</th>
+                     
+                      <th scope="col">Book Name</th>
+                      <th scope="col">Book Id</th>
                       <th scope="col">ISBN</th>
-                      <th scope="col">Title</th>
-                      <th scope="col">Edition</th>
-                      <th scope="col">Total Copies</th>
-                      <th scope="col">Authors</th>
-                      <th scope="col">Edit</th>
-                      <th scope="col">Delete</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Issue Date</th>
+                      <th scope="col">Due Date</th>
+                    
+                      <th scope="col">Return Date</th>
                     </tr>
                   </thead>
                   <tbody class="list">
 
-                    {{#each Bookdata}}
+                    {{#each returndata}}
                     <tr>
                       <th scope="row">
                         <div class="media align-items-center">
@@ -95,15 +84,17 @@
                           </div>
                         </div>
                       </th>
-                      <td>{{this.ISBN}}</td>
-                      <td>{{this.Book_title}}</td>
-                      <td>{{this.Edition}}</td>
-                      <td>{{this.Total_copies}}</td>
-                      <td>{{this.Authors}}</td>
-                      <td><button type="button" class="btn btn-outline-success btn-sm"><a
-                            href="booklist/editbook/{{this.id}}" target="_blank">Edit</a></button></td>
-                      <td><button type="button" class="btn btn-outline-danger btn-sm"><a
-                            href="booklist/deletebook/{{this.id}}">Delete</a></button></td>
+                       <td>{{this.username}}</td>
+                      <td>{{this.mobile}}</td>
+                      <td>{{this.bookname}}</td>
+                      <td>{{this.bookid}}</td>
+                      <td>{{this.isbn}}</td>
+                      <td>{{this.authors}}</td>
+                      <td>{{this.issuedate}}</td>
+                      <td>{{this.duedate}}</td>
+            
+                      <td>{{this.returndate}}</td>
+                     
 
                     </tr>
                     {{/each}}

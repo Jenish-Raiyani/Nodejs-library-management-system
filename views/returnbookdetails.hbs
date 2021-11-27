@@ -8,13 +8,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
-   <script src="/js/tablesearch.js"></script>
-         
-       
+
+ 
 
   <link rel="stylesheet" href="/css/dashboardstyle.css">
-  
   <!-- END META SECTION -->
 
   <!-- CSS INCLUDE -->
@@ -38,18 +35,18 @@
         <div class="header-body">
           <div class="row align-items-center py-4">
             <div class="col-lg-6 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Book Table</h6>
+              <h6 class="h2 text-white d-inline-block mb-0">Return Book Table</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-book"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Books</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Booklist</li>
+                  <li class="breadcrumb-item"><a href="/booklist"><i class="fas fa-book"></i></a></li>
+                 
+                  <li class="breadcrumb-item "  >Book List</li>
                 </ol>
               </nav>
             </div>
             <div class="col-lg-6 col-5 text-right">
-              <a href="/addbook" class="btn btn-sm btn-neutral" target="_blank">Add Book</a>
-              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+              <a href="/viewreturnbook" class="btn btn-sm btn-neutral" target="_blank">View Return Book List</a> 
+              {{!-- <a href="#" class="btn btn-sm btn-neutral">Filters</a> --}}
             </div>
           </div>
         </div>
@@ -62,50 +59,57 @@
           <div class="card">
             <!-- Card header -->
             <div class="card-header border-0">
-              {{!-- <h3 class="mb-0">Books List</h3> --}}
+                {{!-- <h3 class="mb-0">Books List</h3> --}}
                
                      <input type="text" name="search" id="search" class="form-control" placeholder="Search Book" />  
-                 
             </div>
-            
             <!-- Light table -->
             <div class="table-responsive">
               <div>
-                <table class="table align-items-center table-bordered" id="employee_table">
+                <table class="table align-items-center">
                   <thead class="thead-light">
                     <tr>
-                      <th scope="col">No.</th>
-                      <th scope="col">ISBN</th>
-                      <th scope="col">Title</th>
-                      <th scope="col">Edition</th>
-                      <th scope="col">Total Copies</th>
-                      <th scope="col">Authors</th>
-                      <th scope="col">Edit</th>
-                      <th scope="col">Delete</th>
+                       
+                      <th scope="col">Book Name</th>
+                      <th scope="col">ISBN </th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Issue Date</th>
+                      <th scope="col">Due Date</th>
+                      <th scope="col">Return Date</th>
+                      <th scope="col">Full Name</th>
+                      <th scope="col">Mobile No</th>
+                      <th scope="col">Email</th>
+                      
                     </tr>
                   </thead>
                   <tbody class="list">
 
-                    {{#each Bookdata}}
+                    {{#each data}}
+                    <form action="/addreturnbookdetails" method="post" >
+         
                     <tr>
-                      <th scope="row">
-                        <div class="media align-items-center">
-                          <div class="media-body">
-                            <span class="name mb-0 text-sm">{{this.id}}</span>
-                          </div>
-                        </div>
-                      </th>
-                      <td>{{this.ISBN}}</td>
-                      <td>{{this.Book_title}}</td>
-                      <td>{{this.Edition}}</td>
-                      <td>{{this.Total_copies}}</td>
-                      <td>{{this.Authors}}</td>
-                      <td><button type="button" class="btn btn-outline-success btn-sm"><a
-                            href="booklist/editbook/{{this.id}}" target="_blank">Edit</a></button></td>
-                      <td><button type="button" class="btn btn-outline-danger btn-sm"><a
-                            href="booklist/deletebook/{{this.id}}">Delete</a></button></td>
+                      <td style="display:none;"><input type="text" value="{{this.id}}"  name="id" ></td>
+                      
+                      <td style="display:none;"><input type="text" value="{{this.bookid}}"  name="bookid" ></td>
+                      <td><input type="text" value="{{this.bookname}}"  name="bookname" readonly="true" ></td>
+                      <td><input type="text" value="{{this.ISBN}}"  name="isbn" readonly="true" ></td>                     
+                      <td><input type="text" value="{{this.author}}"  name="author" readonly="true" ></td>
+                      <td><input type="text" value="{{this.issuedate}}"  name="idate" readonly="true" ></td>
+                      <td><input type="text" value="{{this.duedate}}"  name="duedate" readonly="true" ></td>
+                       <td>  <div class="form-group">
+                                
+                                <input type="datetime-local" class="form-control" id="rdate" name="rdate">
+                              </div>
+                    </td>
+                      <td><input type="text" value="{{this.username}}"  name="username" readonly="true" ></td>
+                       <td><input type="text" value="{{this.mobile}}"  name="mobile" readonly="true" ></td>
+                       <td><button type="submit" class="btn btn-primary btn-sm">Submit</button></td>
+                 
+                          
+                       
 
                     </tr>
+                    </form>
                     {{/each}}
 
 
@@ -139,6 +143,9 @@
                 </nav>
               </div>
             </div>
+          </div>
+         </div>
+         </div>
           </div>
         
 

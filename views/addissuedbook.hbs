@@ -1,58 +1,41 @@
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
-  <title>Search Book</title>
-  <!-- Favicon -->
-  <link rel="icon" href="../assets/img/brand/favicon.png" type="image/png">
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <!-- Icons -->
-  <link rel="stylesheet" href="/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-  <link rel="stylesheet" href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-  <!-- Argon CSS -->
-  <link rel="stylesheet" href="/assets/css/argon.css?v=1.2.0" type="text/css">
-   <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/search.css">
+  <!-- META SECTION -->
+  <title>Add Book </title>
+
+  
+
+   <link rel="stylesheet" href="/css/search.css">
+  
+
 </head>
 
-<body class="bg-default">
-  
-        <button type="submit" class="btn btn-primary my-4" style="margin-left:90rem; "><a href="/login" style="text-decoration: none;color: aliceblue;">Login</a></button>
-               
-  <div class="main-content">
-    <!-- Header -->
-    
-    <div class="header bg-gradient-primary py-7 py-lg-8 pt-lg-9">
-      
-      <div class="separator separator-bottom separator-skew zindex-100">
-         
-         
-        </svg>
-      </div>
-    </div>
-    <!-- Page content -->
-    <div class="container mt--8 pb-5">
+<body>
 
-      <div class="row justify-content-center">
-        
-        <div class="col-lg-5 col-md-7">
-          <form action="/searchresult" class="search-form" method="post" autocomplete="off">
+
+  <div class="home-content" style="background-color: rgb(255, 255, 255);">
+  
+      <div class="col-lg-6 col-5 text-right" style="float: right;margin-bottom: 20px;">
+          <a href="/viewissuebooklist" class="btn btn-sm btn-neutral" target="_blank">View Issued Books</a>  
+        </div>
+    
+
+    <div class="container">
+      
+     
+      <div class="container mt-4">
+         {{#if message}}
+          <div class="alert alert-success alert-dismissible fade show" id="alertdiv" role="alert">
+              <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+              <span class="alert-text">{{message}}</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+      {{/if}}
+       <form action="/searchbook" class="search-form" method="post" autocomplete="off">
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -72,27 +55,81 @@
             </div>
 
           </form>
-          <section id="searchResults">
+           <section id="searchResults">
 
           </section>
-
-
-        </div>
-        
+          
         
 
       </div>
+
+
+
     </div>
+    <div class="container">
+       <div class="card">
+            <!-- Card header -->
+            <div class="card-header border-0">
+             {{!-- <h3 class="mb-0">Books List</h3> --}}
+               
+                     <input type="text" name="search" id="search" class="form-control" placeholder="Search Book" />  
+            </div>
+            
+            <!-- Light table -->
+            <div class="table-responsive">
+              <div>
+                <table class="table align-items-center">
+                  <thead class="thead-light">
+                    <tr>
+                    
+                      <th scope="col">ISBN</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Edition</th>
+                      <th scope="col">Total Copies</th>
+                      <th scope="col">Authors</th>
+                   
+                    </tr>
+                  </thead>
+                  <tbody class="list">
 
+                    {{#each result}}
+                    <tr>
+                       
+                      <td>{{this.ISBN}}</td>
+                      <td>{{this.Book_title}}</td>
+                      <td>{{this.Edition}}</td>
+                      <td>{{this.Total_copies}}</td>
+                      <td>{{this.Authors}}</td>
+                      <td><button type="button" class="btn btn-outline-success btn-sm"><a
+                            href="issuebook/addDetails/{{this.id}}" target="_blank">+</a></button></td>
+                     
+
+                    </tr>
+                    {{/each}}
+
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- Card footer -->
+              <div class="card-footer py-4">
+                <nav aria-label="...">
+                 
+                </nav>
+              </div>
+            </div>
+          </div>
+
+    </div>
+    
   </div>
+
   
-  </div>
+ 
+ 
 
 
-
-
-
- <script>
+<script>
     const searchResults = document.getElementById('searchResults');
     function sendData(e){
         fetch('getbook',{ 
@@ -222,15 +259,13 @@ document.addEventListener("click", function (e) {
 }
 </script>
 
-  <!-- Argon Scripts -->
-  <!-- Core -->
-  <script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/assets/vendor/js-cookie/js.cookie.js"></script>
-  <script src="/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-  <script src="/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-  <!-- Argon JS -->
-  <script src="/assets/js/argon.js?v=1.2.0"></script>
+
+
+<script>
+  setTimeout(function() {
+    $('#alertdiv').fadeOut('fast');
+}, 2000); // <-- time in milliseconds
+</script>
 </body>
 
 </html>
