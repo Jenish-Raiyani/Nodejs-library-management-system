@@ -1,12 +1,12 @@
 const cron = require('node-cron');
-console.log("aa")
+ 
 const shell = require('shelljs');
 const express = require('express');
 const dotenv =require('dotenv');
 const Vonage = require('@vonage/server-sdk')
 const vonage = new Vonage({
-  apiKey: "261feb69",
-  apiSecret: "BH1GSMzYiicLL4lv"
+  apiKey: " ",
+  apiSecret: " "
 })
 const app = express();
 
@@ -68,13 +68,13 @@ cron.schedule('* * * * * ', function() {
               var transporter = nodemailer.createTransport({
               service: 'gmail',
                 auth: {
-                 user: 'jenishraiyani1212@gmail.com',
-                   pass: 'wxpslcoseeitubfh'
+                 user: ' ',
+                   pass: ' '
                 }
               });
 
             var mailOptions = {
-                from: 'jenishraiyani1212@gmail.com',
+                from: ' ',
                 to: `${row.email}`,
                 subject:'Return library books',
                 text: `You need to return book ${row.bookname} on ${duedate}`,
