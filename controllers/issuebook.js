@@ -118,8 +118,8 @@ exports.getformbookdetials = (req, res)=>{
 
 exports.submitdetails = (req, res)=>{
     var bookid= req.params.id;
-    const {title,isbn,author,idate,duedate,username,mobile} = req.body;
-    db.query('INSERT INTO issuebook SET ?',{bookname:title,bookid:bookid,ISBN:isbn,author:author,issuedate:idate,duedate:duedate,username:username,mobile:mobile},(error,results)=>{
+    const {title,isbn,author,idate,duedate,username,mobile,email} = req.body;
+    db.query('INSERT INTO issuebook SET ?',{bookname:title,bookid:bookid,ISBN:isbn,author:author,issuedate:idate,duedate:duedate,username:username,mobile:mobile,email:email},(error,results)=>{
            if(error){
                console.log(error);
            }

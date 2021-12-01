@@ -93,6 +93,20 @@
                           </select>
      
                     </div>
+                     <div class="form-group">
+                        <label>Mobile Number</label>
+                        {{!-- <input type="text" class="form-control" id="mobile" name="mobile"> --}}
+                        <select   name="email"  class="form-control">
+                            {{#each members}}
+       
+
+                            <option value="{{this.email}}">{{this.email}}</option>
+                            {{/each}}
+       
+                            
+                          </select>
+     
+                    </div>
                     
                     
                      
