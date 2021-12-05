@@ -78,6 +78,8 @@
                       <th scope="col">Mobile No</th>
                       <th scope="col">Aadhaar No</th>
                       <th scope="col">Email</th>
+                      <th scope="col">Update</th>
+                      <th scope="col">Delete</th>
                       
                     </tr>
                   </thead>
@@ -98,6 +100,8 @@
                       <td>{{this.mobileNo}}</td>
                       <td>{{this.aadhaar}}</td>
                       <td>{{this.email}}</td>
+                      <td><button type="submit" class="btn btn-primary  btn-sm" ><a href="/members/getmemdetails/{{this.id}}" style="text-decoration: none;color: aliceblue;" target="_blank">  Update </a></button></td>
+                         <td><button type="submit" class="btn btn-danger  btn-sm" ><a href="/members/deletemember/{{this.id}}" style="text-decoration: none;color: aliceblue;" >  Delete </a></button></td>
                  
                           
                        
